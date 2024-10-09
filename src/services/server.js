@@ -1,6 +1,7 @@
 import express from 'express';
-import { Pool } from 'pg';
 import cors from 'cors';
+import pkg from 'pg';
+const { Pool } = pkg;
 
 const app = express();
 const port = 5000;
