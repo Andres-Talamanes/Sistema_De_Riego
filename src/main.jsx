@@ -7,7 +7,9 @@ import Dashboard from './components/Dashboard';
 import Inicio from './components/Inicio';
 import Beneficios from './components/Beneficios';
 import Datos from './components/Datos';
-import ControlDeSistema from './components/Control_de_sistema'; // Importa el componente
+import ControlDeSistema from './components/Control_de_sistema';
+import Sabila from './components/Sabila';
+import Suculentas from './components/Suculentas';
 
 const App = () => {
   return (
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="inicio" element={<Inicio />} />
           <Route path="beneficios" element={<Beneficios />} />
           <Route path="datos" element={<Datos />} />
+          <Route path="sabila" element={<Sabila />} />
+          <Route path="suculentas" element={<Suculentas />} />
           <Route path="control-sistema" element={<ControlDeSistema />}/>
         </Route>
       </Routes>

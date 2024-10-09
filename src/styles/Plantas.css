@@ -1,0 +1,47 @@
+.plantas-container {
+    display: flex; /* Usamos flexbox para alinear la información y la imagen */
+    justify-content: space-between; /* Espacio entre los elementos */
+    padding: 5.8rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.info-container {
+    flex: 1; /* Toma el espacio restante */
+    margin-right: 2rem; /* Espacio a la derecha para separar la imagen */
+}
+
+.image-container {
+    flex: 0 0 40%; /* Fija el ancho de la imagen al 40% */
+    display: flex; /* Flexbox para centrar la imagen */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.image-container img {
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Añadir bordes redondeados opcionalmente */
+}
+
+.plantas-container h1 {
+    color: #31572c;
+    margin-bottom: 1rem;
+}
+
+.plantas-container p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.plantas-container ul {
+    list-style-type: disc; /* Estilo de lista con viñetas */
+    padding-left: 20px; /* Espacio a la izquierda para la lista */
+}
+
+.plantas-container li {
+    margin-bottom: 0.5rem; /* Espacio entre los elementos de la lista */
+    color: #333; /* Color del texto */
+}

@@ -61,3 +61,24 @@ h1, h2 {
 p {
   color: #666;
 }
+
+.submenu-container {
+  position: relative; /* Necesario para posicionar la línea */
+  padding-left: 20px; /* Espacio para la línea vertical */
+  margin-left: 2rem;
+}
+
+.submenu-container::before {
+  content: ''; /* Necesario para mostrar el pseudo-elemento */
+  position: absolute; /* Posiciona la línea en relación al contenedor */
+  left: 0; /* Alinea la línea al lado izquierdo */
+  top: 0; /* Comienza desde la parte superior del contenedor */
+  bottom: 0; /* Extiende hasta la parte inferior del contenedor */
+  width: 2px; /* Ancho de la línea */
+  background-color: #31572c; /* Color de la línea */
+}
+
+.submenu {
+  list-style: none;
+  padding: 0; 
+}

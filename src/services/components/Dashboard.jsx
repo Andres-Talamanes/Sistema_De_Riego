@@ -3,12 +3,13 @@ import axios from 'axios';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { auth } from '../services/firebase/firebase';
 import { signOut } from 'firebase/auth';
-import { RiHome2Line, RiBarChart2Line, RiHeart2Line, RiLogoutBoxLine } from "react-icons/ri";
+import { RiHome2Line, RiBarChart2Line, RiHeart2Line, RiLogoutBoxLine, RiWaterFlashLine, RiPlantLine, RiPlantFill } from "react-icons/ri";
 import '../styles/Dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [riegoData, setRiegoData] = useState([]);
+  const [isPlantasOpen, setIsPlantasOpen] = useState(false); // Estado para controlar si el submenú está abierto
 
   useEffect(() => {
     const fetchRiegoData = async () => {
@@ -32,6 +33,10 @@ const Dashboard = () => {
     }
   };
 
+  const togglePlantasMenu = () => {
+    setIsPlantasOpen(!isPlantasOpen); // Cambia el estado de abierto/cerrado
+  };
+
   return (
     <div className="dashboard-container">
       <aside className="sidebar">
@@ -43,11 +48,22 @@ const Dashboard = () => {
           <li onClick={() => navigate('/beneficios')}>
             <RiHeart2Line /> Beneficios
           </li>
+          <li onClick={togglePlantasMenu}>
+            <RiPlantLine /> Plantas
+          </li>
+          {isPlantasOpen && (
+            <div className="submenu-container">
+              <ul className={`submenu ${isPlantasOpen ? 'open' : ''}`}>
+                <li onClick={() => navigate('/sabila')}><RiPlantFill />Sábila</li>
+                <li onClick={() => navigate('/suculentas')}><RiPlantFill />Suculentas</li>
+              </ul>
+            </div>
+          )}
           <li onClick={() => navigate('/datos')}>
             <RiBarChart2Line /> Datos
           </li>
           <li onClick={() => navigate('/control-sistema')}>
-            <RiBarChart2Line /> Control de Sistema
+            <RiWaterFlashLine /> Control de Sistema
           </li>
           <li onClick={handleLogout}>
             <RiLogoutBoxLine /> Salir
@@ -55,16 +71,7 @@ const Dashboard = () => {
         </ul>
       </aside>
       <main className="main-content">
-        {/* <h2>Historial de Riegos</h2> */}
         <table>
-          {/* <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Hora</th>
-              <th>Veces Regadas</th>
-              <th>Cantidad de Agua</th>
-            </tr>
-          </thead> */}
           <tbody>
             {riegoData.map((riego, index) => (
               <tr key={index}>
